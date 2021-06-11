@@ -16,40 +16,49 @@ class _QuizScreenState extends State<QuizScreen> {
     {
       "id": 1,
       "question": "question 1",
-      "options": ['1', '2', '3'],
+      "options": [
+        {'option': '1', 'text': 'sadasd', 'isCorrect': true},
+        {'option': '2', 'text': 'sadasd', 'isCorrect': false},
+        {'option': '3', 'text': 'sadasd', 'isCorrect': false}
+      ],
       "answer_index": 1,
     },
     {
       "id": 2,
       "question": "מי כתב את האפליקציה",
-      "options": ['סאם', 'יוסי', 'דוד'],
+      "options": [
+        {'option': '1', 'text': 'sadasd', 'isCorrect': 'true'},
+        {'option': '2', 'text': 'sadasd', 'isCorrect': 'false'},
+        {'option': '3', 'text': 'sadasd', 'isCorrect': 'false'}
+      ],
       "answer_index": 1,
     },
     {
       "id": 3,
       "question": "question 3",
-      "options": ['1', '2', '3'],
+      "options": [
+        {'option': '1', 'text': 'sadasd', 'isCorrect': 'true'},
+        {'option': '2', 'text': 'sadasd', 'isCorrect': 'false'},
+        {'option': '3', 'text': 'sadasd', 'isCorrect': 'false'}
+      ],
       "answer_index": 1,
     },
     {
       "id": 4,
       "question": "question 4",
-      "options": ['1', '2', '3'],
+      "options": [
+        {'option': '1', 'text': 'sadasd', 'isCorrect': 'true'},
+        {'option': '2', 'text': 'sadasd', 'isCorrect': 'false'},
+        {'option': '3', 'text': 'sadasd', 'isCorrect': 'false'}
+      ],
       "answer_index": 1,
     },
   ];
   var i = 0;
   @override
   Widget build(BuildContext context) {
-    List<Question> _questions = sampleData
-        .map(
-          (question) => Question(
-              id: question['id'],
-              question: question['question'],
-              options: question['options'],
-              answer: question['answer_index']),
-        )
-        .toList();
+    List<Question> _questions =
+        sampleData.map((question) => Question.fromJson(question)).toList();
 
     var j = i + 1;
     return Scaffold(

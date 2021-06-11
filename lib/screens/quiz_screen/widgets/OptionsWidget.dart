@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trivia/entities/option.dart';
 import 'package:trivia/entities/question.dart';
 
 class OptionsWidget extends StatelessWidget {
@@ -11,7 +12,7 @@ class OptionsWidget extends StatelessWidget {
       children: question.options
           .map((option) => buildOption(context, option))
           .toList());
-  Widget buildOption(BuildContext context, String option) {
+  Widget buildOption(BuildContext context, Option option) {
     return Container(
       padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -23,11 +24,26 @@ class OptionsWidget extends StatelessWidget {
     );
   }
 
-  Widget buildAnswer(String option) => Container(
+  Widget buildAnswer(Option option) => Container(
         height: 50,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text(option)],
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                option.option,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Text(option.text,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.grey.shade600)),
+            )
+          ],
         ),
       );
 }
