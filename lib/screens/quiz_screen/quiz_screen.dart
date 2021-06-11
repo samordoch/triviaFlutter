@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trivia/entities/question.dart';
+import 'package:trivia/screens/quiz_screen/widgets/OptionsWidget.dart';
 
 import 'widgets/QuestionCard.dart';
 
@@ -15,25 +16,25 @@ class _QuizScreenState extends State<QuizScreen> {
     {
       "id": 1,
       "question": "question 1",
-      "options": ['1', '2', '3', '4'],
+      "options": ['1', '2', '3'],
       "answer_index": 1,
     },
     {
       "id": 2,
-      "question": "question 2",
-      "options": ['1', '2', '3', '4'],
+      "question": "מי כתב את האפליקציה",
+      "options": ['סאם', 'יוסי', 'דוד'],
       "answer_index": 1,
     },
     {
       "id": 3,
       "question": "question 3",
-      "options": ['1', '2', '3', '4'],
+      "options": ['1', '2', '3'],
       "answer_index": 1,
     },
     {
       "id": 4,
       "question": "question 4",
-      "options": ['1', '2', '3', '4'],
+      "options": ['1', '2', '3'],
       "answer_index": 1,
     },
   ];
@@ -74,6 +75,10 @@ class _QuizScreenState extends State<QuizScreen> {
                 thickness: 2,
               ),
               QuestionCard(param: _questions[i].question),
+              Expanded(
+                  child: OptionsWidget(
+                question: _questions[i],
+              )),
               IconButton(
                   onPressed: () {
                     setState(() {
