@@ -4,8 +4,13 @@ import 'package:trivia/entities/question.dart';
 
 class OptionsWidget extends StatelessWidget {
   final Question question;
+  final ValueChanged<Option> onClickedOption;
 
-  const OptionsWidget({Key? key, required this.question}) : super(key: key);
+  const OptionsWidget({
+    Key? key,
+    required this.question,
+    required this.onClickedOption,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) => ListView(
@@ -13,14 +18,18 @@ class OptionsWidget extends StatelessWidget {
           .map((option) => buildOption(context, option))
           .toList());
   Widget buildOption(BuildContext context, Option option) {
-    return Container(
-      padding: EdgeInsets.all(12),
-      decoration: BoxDecoration(
-          color: Colors.grey.shade300, borderRadius: BorderRadius.circular(15)),
-      margin: EdgeInsets.all(
-        5,
+    final color = getColorForOption(option, question);
+    return GestureDetector(
+      onTap: () => onClickedOption(option),
+      child: Container(
+        padding: EdgeInsets.all(12),
+        decoration: BoxDecoration(
+            color: color, borderRadius: BorderRadius.circular(15)),
+        margin: EdgeInsets.all(
+          5,
+        ),
+        child: buildAnswer(option),
       ),
-      child: buildAnswer(option),
     );
   }
 
@@ -46,4 +55,16 @@ class OptionsWidget extends StatelessWidget {
           ],
         ),
       );
+}
+
+Color getColorForOption(Option option, Question question) {
+  if (question.selectedOption != null) {
+    final isSelected = option == question.selectedOption;
+    if (!isSelected) {
+      return Colors.grey.shade200;
+    } else {
+      return option.isCorrect ? Colors.green : Colors.red;
+    }
+  } else
+    return Colors.grey.shade200;
 }

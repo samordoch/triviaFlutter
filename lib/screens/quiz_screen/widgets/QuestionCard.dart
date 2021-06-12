@@ -6,18 +6,25 @@ class QuestionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Card(
-        child: Padding(
-          padding: EdgeInsets.all(15),
-          child: Text(
-            param,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 15,
+      height: 150,
+      decoration: BoxDecoration(
+          color: Colors.blueAccent, borderRadius: BorderRadius.circular(15)),
+      margin: EdgeInsets.all(
+        5,
+      ),
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              param,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  color: Colors.white),
             ),
-          ),
-        ),
-        color: Colors.grey,
+          )
+        ],
       ),
     );
   }
