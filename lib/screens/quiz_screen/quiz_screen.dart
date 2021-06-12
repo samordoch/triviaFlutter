@@ -18,43 +18,102 @@ class _QuizScreenState extends State<QuizScreen> {
   final List sampleData = [
     {
       "id": 1,
-      "question": "question 1",
+      "question": "How many seasons of Friends are there?",
       "options": [
-        {'option': '1', 'text': 'sadasd', 'isCorrect': 'true'},
-        {'option': '2', 'text': 'sadasd', 'isCorrect': 'false'},
-        {'option': '3', 'text': 'sadasd', 'isCorrect': 'false'}
+        {'option': '1', 'text': '10', 'isCorrect': 'true'},
+        {'option': '2', 'text': '11', 'isCorrect': 'false'},
+        {'option': '3', 'text': '9', 'isCorrect': 'false'}
       ],
-      "answer_index": 1,
     },
     {
       "id": 2,
-      "question": "מי כתב את האפליקציה",
+      "question": "Joey played Dr. Drake Ramoray on which soap opera show?",
       "options": [
-        {'option': '1', 'text': 'sadasd', 'isCorrect': 'true'},
-        {'option': '2', 'text': 'sadasd', 'isCorrect': 'false'},
-        {'option': '3', 'text': 'sadasd', 'isCorrect': 'false'}
+        {'option': '1', 'text': 'The Doctors', 'isCorrect': 'false'},
+        {'option': '2', 'text': 'Days of Our Lives', 'isCorrect': 'true'},
+        {'option': '3', 'text': 'General Hospital', 'isCorrect': 'false'}
       ],
-      "answer_index": 1,
     },
     {
       "id": 3,
-      "question": "question 3",
+      "question":
+          "Brad Pitt and David Schwimmer’s characters cofounded what club in high school?",
       "options": [
-        {'option': '1', 'text': 'sadasd', 'isCorrect': 'true'},
-        {'option': '2', 'text': 'sadasd', 'isCorrect': 'false'},
-        {'option': '3', 'text': 'sadasd', 'isCorrect': 'false'}
+        {
+          'option': '1',
+          'text': 'I Hate Rachel Green Club',
+          'isCorrect': 'true'
+        },
+        {
+          'option': '2',
+          'text': 'I Hate Color Green Club',
+          'isCorrect': 'false'
+        },
+        {'option': '3', 'text': 'Chess Club', 'isCorrect': 'false'}
       ],
-      "answer_index": 1,
     },
     {
       "id": 4,
-      "question": "question 4",
+      "question": "Which of Joey’s sisters did Chandler fool around with?",
       "options": [
-        {'option': '1', 'text': 'sadasd', 'isCorrect': 'true'},
-        {'option': '2', 'text': 'sadasd', 'isCorrect': 'false'},
-        {'option': '3', 'text': 'sadasd', 'isCorrect': 'false'}
+        {'option': '1', 'text': 'Mary Teresa', 'isCorrect': 'false'},
+        {'option': '2', 'text': 'Mary Jane', 'isCorrect': 'false'},
+        {'option': '3', 'text': 'Mary Angela', 'isCorrect': 'true'}
       ],
-      "answer_index": 1,
+    },
+    {
+      "id": 5,
+      "question": "Joey and Chandler’s TV guide is addressed to who?",
+      "options": [
+        {'option': '1', 'text': 'Miss Chanandler Bong.', 'isCorrect': 'true'},
+        {'option': '2', 'text': 'Mr Chanandler Bong.', 'isCorrect': 'false'},
+        {'option': '3', 'text': 'Mary Angela', 'isCorrect': 'false'}
+      ],
+    },
+    {
+      "id": 6,
+      "question": "According to Monica, a woman has how many erogenous zones?",
+      "options": [
+        {'option': '1', 'text': '3', 'isCorrect': 'false'},
+        {'option': '2', 'text': '5', 'isCorrect': 'false'},
+        {'option': '3', 'text': '7', 'isCorrect': 'true'}
+      ],
+    },
+    {
+      "id": 7,
+      "question": "How many sisters does Joey have?",
+      "options": [
+        {'option': '1', 'text': '6', 'isCorrect': 'false'},
+        {'option': '2', 'text': '7', 'isCorrect': 'true'},
+        {'option': '3', 'text': '9', 'isCorrect': 'false'}
+      ],
+    },
+    {
+      "id": 8,
+      "question": "Who was (accidentally) Monica’s first kiss?",
+      "options": [
+        {'option': '1', 'text': 'Richard ', 'isCorrect': 'false'},
+        {'option': '2', 'text': 'Rachel', 'isCorrect': 'false'},
+        {'option': '3', 'text': 'Ross', 'isCorrect': 'true'}
+      ],
+    },
+    {
+      "id": 9,
+      "question": "Rachel goes on Ross’ honeymoon by herself where?",
+      "options": [
+        {'option': '1', 'text': 'Athens, Greece', 'isCorrect': 'true'},
+        {'option': '2', 'text': 'Paris, Franch', 'isCorrect': 'false'},
+        {'option': '3', 'text': 'London, Uk', 'isCorrect': 'false'}
+      ],
+    },
+    {
+      "id": 10,
+      "question": "Which character famously said, “PIVOT”?",
+      "options": [
+        {'option': '1', 'text': 'Joey', 'isCorrect': 'false'},
+        {'option': '2', 'text': 'Monica', 'isCorrect': 'false'},
+        {'option': '3', 'text': 'Ross', 'isCorrect': 'true'}
+      ],
     },
   ];
   var i = 0;
@@ -82,7 +141,7 @@ class _QuizScreenState extends State<QuizScreen> {
     });
     return Scaffold(
       appBar: AppBar(
-        title: Text('sam quiz'),
+        title: Text('know your F.R.I.E.N.D.S quiz'),
       ),
       body: Stack(
         children: [
@@ -110,7 +169,6 @@ class _QuizScreenState extends State<QuizScreen> {
                   child: OptionsWidget(
                       question: currentQuestion,
                       onClickedOption: selectOption)),
-              IconButton(onPressed: () {}, icon: const Icon(Icons.skip_next))
             ],
           )
         ],
@@ -130,7 +188,10 @@ class _QuizScreenState extends State<QuizScreen> {
         showDialog(
             context: context,
             builder: (a) => AlertDialog(
-                  title: Text("game ended your score is " + score.toString()),
+                  title: Text("game ended your score is " +
+                      score.toString() +
+                      "/" +
+                      questions.length.toString()),
                   actions: [
                     FlatButton(
                         onPressed: () {
@@ -139,7 +200,10 @@ class _QuizScreenState extends State<QuizScreen> {
                           });
                           Navigator.pop(context);
                         },
-                        child: Text("play again"))
+                        child: Text(
+                          "play again",
+                          style: TextStyle(color: Colors.blue),
+                        ))
                   ],
                 ));
         print('game ended your score is ' + score.toString());
