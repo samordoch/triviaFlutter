@@ -193,7 +193,7 @@ class _QuizScreenState extends State<QuizScreen> {
                       "/" +
                       questions.length.toString()),
                   actions: [
-                    FlatButton(
+                    TextButton(
                         onPressed: () {
                           setState(() {
                             currentQuestion = null;
@@ -230,6 +230,9 @@ class _QuizScreenState extends State<QuizScreen> {
         }
       });
       print(currentQuestion.isLocked);
+      //calls next question after 1 secoends
+      //can be changed later to a dinamic int for faster or slower time
+      //depends if user correct or not
       Future.delayed(Duration(seconds: 1), () {
         nextQuestion();
       });

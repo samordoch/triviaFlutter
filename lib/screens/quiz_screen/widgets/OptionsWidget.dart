@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:trivia/entities/option.dart';
 import 'package:trivia/entities/question.dart';
 
+//option widget require a question object
+//and a function to set as on click
 class OptionsWidget extends StatelessWidget {
   final Question question;
   final ValueChanged<Option> onClickedOption;
@@ -33,6 +35,7 @@ class OptionsWidget extends StatelessWidget {
     );
   }
 
+  //build list of options
   Widget buildAnswer(Option option) => Container(
         height: 50,
         child: Stack(
@@ -57,6 +60,7 @@ class OptionsWidget extends StatelessWidget {
       );
 }
 
+//function that set the color of the option card
 Color getColorForOption(Option option, Question question) {
   if (question.selectedOption != null) {
     final isSelected = option == question.selectedOption;

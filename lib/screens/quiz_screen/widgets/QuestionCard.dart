@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+//question card that display the current question
+//requires only the question string
 class QuestionCard extends StatelessWidget {
   const QuestionCard({Key? key, required this.question}) : super(key: key);
   final String question;
