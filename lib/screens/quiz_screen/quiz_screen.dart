@@ -163,7 +163,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 thickness: 2,
               ),
               //current question
-              QuestionCard(param: currentQuestion.question),
+              QuestionCard(question: currentQuestion.question),
               Expanded(
                   //will display all available options
                   child: OptionsWidget(

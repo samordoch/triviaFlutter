@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class QuestionCard extends StatelessWidget {
-  const QuestionCard({Key? key, required this.param}) : super(key: key);
-  final String param;
+  const QuestionCard({Key? key, required this.question}) : super(key: key);
+  final String question;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +17,7 @@ class QuestionCard extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: Text(
-              param,
+              question,
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
